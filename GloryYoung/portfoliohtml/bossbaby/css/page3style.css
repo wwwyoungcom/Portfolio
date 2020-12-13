@@ -1,0 +1,498 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    font-family: 'Noto Sans KR';
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: radial-gradient(circle 500px at center, #C5E3F4 0%, #30c7ec 47%, #24A8FD 100%);
+}
+/*--------------------------------*/
+/* 햄버거 메뉴 */
+nav {
+    overflow: hidden;
+    position: fixed; 
+    transform: translateX(-300px);
+    height: 100%;
+    width: 400px;
+    transition: all 800ms cubic-bezier(.8, 0, .33, 1);
+    border-radius: 0% 0% 100% 50%;
+    z-index: 1;
+}
+nav.nav-open {
+    z-index: 1;
+    transform: translateX(0px);
+    border-radius: 0% 0% 0% 0%;
+	background: rgba(0, 0, 0, 0.5);
+}
+nav .menu-btn {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    padding: 0;
+    width: 30px;
+    cursor: pointer;
+    z-index: 2;
+    z-index: 1;
+}
+nav .menu-btn .line {
+    padding: 0;
+    width: 30px;
+    background: #fff;
+    height: 2px;
+    margin: 5px 0;
+    transition: all 700ms cubic-bezier(.9, 0, .33, 1);
+    z-index: 1;
+}
+/* 햄버거 메뉴 -> 닫기 버튼 */
+nav .menu-btn .line.line--1 {
+    width: 50px;
+    margin-top:10px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    transform: rotate(0) translateY(0);
+    z-index: 1;
+}
+nav .menu-btn .line.line--1.line-cross {
+    width: 50px;
+    margin-top:10px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    transform: rotate(45deg) translateY(22.5px);
+    background: #fff;
+    z-index: 1;
+}
+nav .menu-btn .line.line--2 {
+    width: 50px;
+    margin-top:10px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    transform: translateX(0);
+    z-index: 1;
+}
+nav .menu-btn .line.line--2.line-fade-out {
+    width: 50px;
+    margin-top:10px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    transform: translate(30px);
+    opacity: 0;
+    z-index: 1;
+}
+nav .menu-btn .line.line--3 {
+    width: 50px;
+    margin-top:10px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    transform: rotate(0) translateY(0);
+    z-index: 1;
+}
+nav .menu-btn .line.line--3.line-cross {
+    width: 50px;
+    margin-top:10px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    transform: rotate(-45deg) translateY(-22.5px);
+     background: #fff;
+     z-index: 1;
+}
+/* 햄버거 메뉴 카테고리 */
+nav .nav-links {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 900ms cubic-bezier(.9, 0, .33, 1);
+    z-index: 1;
+}
+nav .nav-links.fade-in {
+    opacity: 1;
+    transform: translateX(0px);
+}
+nav .nav-links .link {
+    margin: 20px 0;
+    text-decoration: none;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 30px;
+    transition: all 300ms cubic-bezier(.9, 0, .33, 1);
+}
+nav .nav-links .link:hover {
+    color: #24A8FD;
+}
+a{
+	margin: 0 20px;
+	color: #fff;
+	font-size: 2rem;
+	transition: all 400ms ease;
+}
+a:hover{
+	color: #222;
+}
+/* 햄버거 메뉴 속 작은 로고 */
+.nav-logo {
+    z-index: 5;
+    width: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* 오른쪽 큰 로고 */
+.main-logo {
+    text-align: right; 
+    padding-right: 50px;
+    position: fixed; 
+    width: 100%; 
+    display: inline-block;
+    padding-top: 60px;
+    list-style-type: none;
+}
+
+
+/*푸터*/
+footer {
+    color: #FFFFFF; 
+    text-align: center; 
+    font-size: 13px; 
+    padding: 10px 0;
+    bottom: 0;
+}
+footer > ul {
+    margin-bottom: 0px;
+    width: 70%; 
+    display: inline-block;
+}
+footer > ul > li {
+    float: left; 
+    width: 33.3333%; 
+    list-style-type: none;
+}
+footer > ul > li:first-child {
+    text-align: left;
+}
+footer > ul > li > dl.Company > dt {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+footer > ul > li > dl.Company > dd {
+    font-size: 13px;
+    text-align: left;
+    margin:0px;
+}
+footer > ul > li.SNS > a > img {
+    text-align: center;
+    padding: 10px;
+}
+footer > ul > li.myfooter {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* 보스베이비 소개 */ 
+.group {
+    padding-bottom: 200px; /* 푸터를 좀 더 내리려고 수정 */
+}
+.bossbaby {
+    position: relative;
+    text-align: center;
+    top:150px;
+}
+.modal1 { /* 보스 베이비 수트 */ 
+    position: relative;
+    margin-left: 680px;
+    margin-top: -100px;
+}
+.modal2 { /* 보스 베이비 기저귀 */ 
+    position: relative;
+    margin-left: 855px;
+    margin-top: 60px;
+}
+.modal3 { /* 보스 베이비 목소리 */ 
+    position: relative;
+    margin-left: 800px;
+    margin-top: -200px;
+}
+.modal-container { /* 모달 박스 */ 
+    padding-top: 0px;
+    position: relative;
+}
+.modal-container .modal-btn { /* 모달 버튼 */ 
+    display: block;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 50px;
+    background: #fff;
+    font-size: 22px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 0px 3px #fff;
+    transition: background 0.3s ease-in;
+}
+.modal-container .modal-btn:hover {
+    background: #24A8FD;
+}
+.modal-container .modal-content,
+.modal-container .modal-backdrop {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in;
+}
+.modal-container .modal-close { /* 모달 닫기 버튼 */ 
+    color: #aaa;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding-top: 3px;
+    background: #fff;
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.modal-container .modal-close:hover {
+    color: #333;
+}
+.modal-container #modal-toggle {
+    display: none;
+}
+.modal-container #modal-toggle.active ~ .modal-backdrop, .modal-container #modal-toggle:checked ~ .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+.modal-container #modal-toggle.active ~ .modal-content, .modal-container #modal-toggle:checked ~ .modal-content {
+    opacity: 1;
+    background-color: #fff;
+    max-width: 400px;
+    width: 400px;
+    height: 280px;
+    padding: 10px 30px;
+    margin-top: 200px;
+    position: fixed;
+    left: calc(50% - 200px);
+    top: 12%;
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: auto;
+    cursor: auto;
+    visibility: visible;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 400px) {
+    .modal-container #modal-toggle.active ~ .modal-content, .modal-container #modal-toggle:checked ~ .modal-content {
+    left: 0;
+    }
+}
+.modal-container2 {
+    padding-top: 0px;
+    position: relative;
+}
+.modal-container2 .modal-btn2 {
+    display: block;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 50px;
+    background: #fff;
+    font-size: 22px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 0px 3px #fff;
+    transition: background 0.3s ease-in;
+}
+.modal-container2 .modal-btn2:hover {
+    background: #24A8FD;
+}
+.modal-container2 .modal-content2,
+.modal-container2 .modal-backdrop2 {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in;
+}
+.modal-container2 .modal-close2 {
+    color: #aaa;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding-top: 3px;
+    background: #fff;
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.modal-container2 .modal-close2:hover {
+    color: #333;
+}
+.modal-container2 #modal-toggle2 {
+    display: none;
+}
+.modal-container2 #modal-toggle2.active ~ .modal-backdrop2, .modal-container2 #modal-toggle2:checked ~ .modal-backdrop2 {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+.modal-container2 #modal-toggle2.active ~ .modal-content2, .modal-container2 #modal-toggle2:checked ~ .modal-content2 {
+    opacity: 1;
+    background-color: #fff;
+    max-width: 400px;
+    width: 400px;
+    height: 280px;
+    padding: 10px 30px;
+    margin-top: 200px;
+    position: fixed;
+    left: calc(50% - 200px);
+    top: 12%;
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: auto;
+    cursor: auto;
+    visibility: visible;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 400px) {
+    .modal-container2 #modal-toggle2.active ~ .modal-content2, .modal-container2 #modal-toggle2:checked ~ .modal-content2 {
+    left: 0;
+    }
+}
+.modal-container3 {
+    padding-top: 0px;
+    position: relative;
+}
+.modal-container3 .modal-btn3 {
+    display: block;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 50px;
+    background: #fff;
+    font-size: 22px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 0px 3px #fff;
+    transition: background 0.3s ease-in;
+}
+.modal-container3 .modal-btn3:hover {
+    background: #24A8FD;
+}
+.modal-container3 .modal-content3,
+.modal-container3 .modal-backdrop2 {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in;
+}
+.modal-container3 .modal-close3 {
+    color: #aaa;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding-top: 3px;
+    background: #fff;
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.modal-container3 .modal-close3:hover {
+    color: #333;
+}
+.modal-container3 #modal-toggle3 {
+    display: none;
+}
+.modal-container3 #modal-toggle3.active ~ .modal-backdrop3, .modal-container3 #modal-toggle3:checked ~ .modal-backdrop3 {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+.modal-container3 #modal-toggle3.active ~ .modal-content3, .modal-container3 #modal-toggle3:checked ~ .modal-content3 {
+    opacity: 1;
+    background-color: #fff;
+    max-width: 400px;
+    width: 400px;
+    height: 280px;
+    padding: 10px 30px;
+    margin-top: 200px;
+    position: fixed;
+    left: calc(50% - 200px);
+    top: 12%;
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: auto;
+    cursor: auto;
+    visibility: visible;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 400px) {
+    .modal-container3 #modal-toggle3.active ~ .modal-content3, .modal-container3 #modal-toggle3:checked ~ .modal-content3 {
+    left: 0;
+    }
+}
